@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMIS-Benchmark</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="icon" type="image/jepg" href="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/mmbench_icon.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .title {
+            margin: 30wpx 0;
+            font-weight: bold;
+        }
+
+        .title h1 {
+            font-size: 3.0em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle h2 {
+            font-size: 1.5em;
+            color: #696969;
+            margin-bottom: 20px;
+        }
+
+        .authors {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .affiliations {
+            font-size:1.1em;
+            color: #696969;
+            margin-bottom: 10px;
+        }
+
+        .notes {
+            font-size: 0.85em;
+            color: #696969;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            margin: 5px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background-color: #333;
+            color: white;
+            font-size: 1em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .buttons a .icon {
+            margin-right: 5px;
+        }
+
+        .buttons a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <!-- Title Section -->
+            <div class="title">
+                <h1>IMIS-Bench</h1>
+            </div>
+            <!-- Subtitle Section -->
+            <div class="subtitle">
+                <h2>
+                  Interactive Medical Image Segmentation: A Benchmark Dataset and Baseline
+                </h2>
+            </div>
+            <!-- Authors Section -->
+            <div class="authors">
+              Junlong Cheng<sup>¶1,2</sup>, Bin Fu<sup>1</sup>, Jin Ye<sup>1,3</sup>, Guoan Wang<sup>1,4</sup>, 
+              Tianbin Li<sup>1</sup>, Haoyu Wang<sup>1,5</sup>, </span> <br> Ruoyu Li<sup>2</sup>, He Yao<sup>2</sup>, Junren Chen<sup>2</sup>,
+              JingWen Li<sup>6</sup>, Yanzhou Su<sup>1</sup>, Min Zhu<sup>§2</sup>, Junjun He<sup>‡1</sup>
+            </div>
+            <!-- Affiliations Section -->
+            <div class="affiliations">
+                <div>1. Shanghai AI Laboratory, General Medical Artificial Intelligence</div>
+                <div>2. Sichuan University, School of Computer Science</div>
+                <div>3. Monash University</div>
+                <div>4. East China Normal University, School of computer science and technology</div>
+                <div>5. Shanghai Jiao Tong University, School of biomedical  engineering</div>
+                <div>6. Xinjiang University, School of Computer Science and Technology</div>
+            </div>
+            <!-- Notes Section -->
+            <div class="notes">
+                 ¶ Main technical contribution, ‡ Corresponding authors, § Project lead
+            </div>
+            <!-- Buttons Section -->
+            <div class="buttons">
+                <a href="https://arxiv.org/abs/2308.16184" class="paper">
+                    <span class="icon">📑</span> Paper
+                </a>
+                <a href="https://github.com/uni-medical/IMIS-Bench" class="code">
+                    <span class="icon">💻</span> Code
+                </a>
+                <a href="https://huggingface.co/datasets/1Junlong/IMed-361M" class="data">
+                    <span class="icon">📊</span> Data
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Video Section -->
+
+    <style>
+      .video-section video {
+          max-width: 45%; /* 限制最大宽度为80% */
+          margin: 0 auto; /* 居中对齐 */
+          display: block; /* 使其成为块级元素以支持居中 */
+          margin-bottom: 60px; /* 增加视频和后续内容的间距 */
+      }
+    </style>
+    <section class="video-section">
+      <div class="container">
+          <h2 style="margin-top: 20px;"></h2>
+          <video controls autoplay loop muted>
+              <source src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/dataset_video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+      </div>
+    </section>
+</body>
+
+
+
+<!--/ Abstract. -->
+<style>
+  /* 自定义摘要文本样式 */
+  .content p {
+      font-size: 18px; /* 自定义字体大小 */
+      line-height: 1.5; /* 设置行高以增加可读性 */
+      text-align: justify; /* 两端对齐 */
+      margin-bottom: 20px; /* 设置段落之间的间距 */
+  }
+  /* 调整图像与标题的间距 */
+  .abstract-image {
+      width: 100%;
+      max-width: 1400px;
+      margin: 10px auto; /* 减少上下间距 */
+  }
+</style>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="max-width: 1000px; margin: 0 auto;">
+        <!-- Abstract 标题 -->
+        <h2 class="title is-3" style="font-size: 2.3em;">Abstract</h2>
+        <!-- 图像插入位置 -->
+        <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/fig1.png" alt="Header Image" class="abstract-image">
+        <!-- 摘要内容 -->
+        <div class="content">
+          <p>
+            Interactive Medical Image Segmentation (IMIS) has long been constrained by the limited availability of large-scale, diverse, and densely annotated datasets, which hinders model generalization and consistent evaluation across different models. In this paper, we introduce the IMed-361M benchmark dataset, a significant advancement in general IMIS research. First, we collect and standardize over 6.4 million medical images and their corresponding ground truth masks from multiple data sources. Then, leveraging the strong object recognition capabilities of a vision foundational model, we automatically generated dense interactive masks for each image and ensured their quality through rigorous quality control and granularity management. Unlike previous datasets, which are limited by specific modalities or sparse annotations, IMed-361M spans 14 modalities and 204 segmentation targets, totaling 361 million masks—an average of 56 masks per image. Finally, we developed an IMIS baseline network on this dataset that supports high-quality mask generation through interactive inputs, including clicks, bounding boxes, text prompts, and their combinations. We evaluate its performance on medical image segmentation tasks from multiple perspectives, demonstrating superior accuracy and scalability compared to existing interactive segmentation models. To facilitate research on foundational models in medical computer vision, we release the IMed-361M and model at https://github.com/uni-medical/IMIS-Bench.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--/ Overview. -->
+<style>
+  /* 自定义摘要文本样式 */
+  .content p {
+      font-size: 18px; /* 自定义字体大小 */
+      line-height: 1.5; /* 设置行高以增加可读性 */
+      text-align: justify; /* 两端对齐 */
+      margin-bottom: 0px; /* 设置段落之间的间距 */
+  }
+  /* 调整图像与标题的间距 */
+  .abstract-image {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0px auto; /* 减少上下间距 */
+  }
+</style>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="max-width: 1000px; margin: 0 auto;">
+        <!-- Abstract 标题 -->
+        <h2 class="title is-3" style="font-size: 2.3em;">IMIS Benchmark Dataset</h2>
+        <!-- 摘要内容 -->
+        <div class="content">
+          <p>
+            The IMed-361M dataset is the largest publicly available, multimodal, interactive medical image segmentation dataset to date. (a) Illustrates the scale of the dataset, comprising 6.4 million images, 87.6 million GT masks, and 273.4 million interactive masks, averaging 56 masks per image. (b) Highlights the diversity of the dataset, covering 14 imaging modalities and 204 segmentation targets, categorized into six groups: Head and Neck, Thorax, Skeleton, Abdomen, Pelvis, and Lesions. (c) Shows that over 83% of the images have resolutions between 256×256 and 1024×1024, ensuring broad applicability. (d) Describes the fine-grained nature of the dataset, with most masks covering less than 2% of the image area, while (e) demonstrates that IMed-361M significantly outperforms other datasets such as MedTrinity-25M and COSMOS in terms of mask quantity, providing 14.4 times more masks than MedTrinity-25M.
+          </p>
+        </div>
+        <!-- 图像插入位置 -->
+        <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/fig2.png" alt="Header Image" class="abstract-image">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--/ IMIS Baseline. -->
+
+<section class="section">
+
+  <style>
+    /* 自定义摘要文本样式 */
+    .content p {
+        font-size: 18px; /* 自定义字体大小 */
+        line-height: 1.5; /* 设置行高以增加可读性 */
+        text-align: justify; /* 两端对齐 */
+        margin-bottom: 0px; /* 设置段落之间的间距 */
+    }
+    /* 调整图像与标题的间距 */
+    .imis-baseline-image {
+        width: 85%;
+        max-width: 1000px; /* 限制最大宽度为800px */
+        margin: 0 auto; /* 居中对齐 */
+    }
+  
+  </style>
+
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="max-width: 1000px; margin: 0 auto;">
+        <!-- Abstract 标题 -->
+        <h2 class="title is-3" style="font-size: 2.3em;">IMIS Baseline</h2>
+        <!-- 图像插入位置 -->
+        <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/fig4.png" alt="Header Image" class="imis-baseline-image">
+        <!-- 摘要内容 -->
+        <div class="content">
+          <p>
+            We simulate continuous interactive segmentation training. For a given segmentation task and medical image \(x_t\), we first simulate a set of initial interactions \(u^{g}_{1}\) and \(u^{i}_{1}\) based on the corresponding ground truth \(y^g\) and interactive mask \(y^i\), which include clicks, bboxes, and text input. The click points are uniformly sampled from the foreground regions of \(y^g\) or \(y^i\), while the bboxes are defined as the smallest bounding box around the target, with an offset of 5 pixels added to each coordinate to simulate slight user bias during the interaction process. The entire training process involves \(K\) interactive training iterations (with \(K=8\) in this paper). The model's initial predictions are \(\hat{y}^{g}_{1}\) and \(\hat{y}^{i}_{1}\). After the first prediction, we simulate subsequent corrections based on the previous predictions \(\hat{y}^{g}_{k}\) and \(\hat{y}^{i}_{k}\), as well as the error region \(\varepsilon_{k}\) between the \(y^g\) and \(y^i\), where \(k\in \{1,...,K\}\). Additionally, we provide the low-resolution predicted mask from the previous prediction as an extra cue to the model. As can be seen, the image encoder only needs to encode the image once during the training, and subsequent interactive training only updates the prompt encoder and mask decoder parameters.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+
+  <style>
+    /* 自定义摘要文本样式 */
+    .content p {
+        font-size: 18px; /* 自定义字体大小 */
+        line-height: 1.5; /* 设置行高以增加可读性 */
+        text-align: justify; /* 两端对齐 */
+        margin-bottom: 0px; /* 设置段落之间的间距 */
+    }
+    /* 调整图像与标题的间距 */
+    .experiment-image {
+        width: 90%;
+        max-width: 1000px; /* 限制最大宽度为800px */
+        margin: 0 auto; /* 居中对齐 */
+        margin-bottom: 20px; /* 增加图片之间的下边距 */
+    }
+  
+  </style>
+
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths" style="max-width: 1000px; margin: 0 auto;">
+        <!-- Abstract 标题 -->
+        <h2 class="title is-3" style="font-size: 2.3em;">Experiment Results</h2>
+        <!-- 图像插入位置 -->
+        <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/fig5.png" alt="Header Image" class="experiment-image">
+        <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/fig6.png" alt="Header Image" class="experiment-image">
+        <!-- 摘要内容 -->
+        <div class="content">
+          <p>
+            We compared the performance of IMIS-Net with other vision foundation models on the single-interaction segmentation task. The results show that IMIS-Net outperforms other models in both image and mask-level statistics. The bounding box (bbox) interaction consistently outperforms the click interaction, as bbox provides more boundary information. Despite being pretrained on large-scale medical image datasets, MedSAM and SAM-Med2D still exhibit significant performance differences, primarily due to the scale and diversity of their pretraining datasets. SAM-Med2D performs poorly on anatomical structures such as bones due to the lack of skeletal structure samples. Additionally, SAM and SAM-2, pretrained without medical knowledge, achieve only 60.26% and 59.57% Dice scores under the single-point prompt condition, limited by the pretraining data and interaction constraints. Increasing the number of interactions from 1 to 9 improves model performance, and the gap between models narrows. Performance also depends on click position and bbox offset. When the prompt is closer to the centroid, SAM-2’s Dice score increases by 2.84%. However, all models experience a performance drop (0.85%-3.94%) due to bbox offset, with IMIS-Net showing the smallest decline, demonstrating its robustness.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 拼接GIF图像 -->
+<section class="section">
+  <style>
+    .gif-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 每行显示4个图像 */
+        gap: 10px; /* 图像之间的间距 */
+        max-width: 70%; /* 限制网格的宽度 */
+        margin: 0 auto; /* 居中显示整个网格 */
+        background-color: #000; /* 为整个容器设置黑色背景，确保填充效果 */
+    }
+
+    .gif-grid .gif-wrapper {
+        width: 80%; /* 让子项宽度占满单元格 */
+        aspect-ratio: 1/1; /* 确保固定的宽高比为正方形 */
+        background-color: black; /* 如果图片太小，用黑色背景补充 */
+        display: flex;
+        align-items: center; /* 垂直居中 */
+        justify-content: center; /* 水平居中 */
+    }
+
+    .gif-grid img {
+        max-width: 85%; /* 确保图像不会超过父容器宽度 */
+        max-height: 85%; /* 确保图像不会超过父容器高度 */
+        object-fit: contain; /* 保持图像比例并填充背景 */
+        border: 2px solid #ccc; /* 可选，增加边框美观 */
+        border-radius: 5px; /* 可选，圆角边框 */
+    }
+  </style>
+
+  <div class="container">
+    <h2 class="title is-3" style="font-size: 2.3em;">One model for multiple modalities and segmentation tasks</h2>
+    <div class="gif-grid">
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/Case18-US_93.gif" alt="GIF 1">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/32.gif" alt="GIF 2">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/ISIC_0000013.gif" alt="GIF 3">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/P001-4-ED_2.gif" alt="GIF 4">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/word_0022_186_enhanced.gif" alt="GIF 5">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/CHNCXR_0002_0.gif" alt="GIF 6">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/TRAIN036_25.gif" alt="GIF 7">
+        </div>
+        <div class="gif-wrapper">
+            <img src="https://huggingface.co/datasets/1Junlong/IMIS-Homepage/resolve/main/RHUH-0007_2_110.gif" alt="GIF 8">
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- <h1>
+<section class="bibtex-section">
+  <style>
+    /* General styles for the section */
+    .bibtex-section {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 800px;
+        text-align: left; /* 强制左对齐 */
+    }
+
+    /* Title styling */
+    .bibtex-title {
+        font-size: 1.8em;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    /* Container for BibTeX content */
+    .bibtex-container {
+        background-color: #f7f7f7; /* Light grey background */
+        border: 1px solid #ddd; /* Border around BibTeX */
+        padding: 15px;
+        font-family: monospace; /* Use monospace for code-like content */
+        font-size: 14px;
+        color: #000;
+        overflow-x: auto; /* Horizontal scroll for long content */
+        white-space: pre-wrap; /* Maintain formatting while wrapping */
+        border-radius: 1px; /* Rounded edges */
+    }
+  </style>
+
+  <div class="bibtex-content">
+
+    <div class="bibtex-title">BibTeX</div>
+    
+
+    <div class="bibtex-container">
+      @misc{chen2024gmaimmbenchcomprehensivemultimodalevaluation,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;title={Interactive Medical Image Segmentation: A Benchmark Dataset and Baseline},<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;author={ Junlong Cheng and Bin Fu and Jin Ye and Guoan Wang and Tianbin Li and Haoyu Wang and Ruoyu Li and He Yao and Junren Chen and JingWen Li and Yanzhou Su and Min Zhu and Junjun He}
+      &nbsp;&nbsp;&nbsp;&nbsp;year={2024},<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;eprint={2408.03361},<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;archivePrefix={arXiv},<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;primaryClass={eess.IV},<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;url={https://arxiv.org/abs/2408.03361},<br>
+      }
+    </div>
+  </div>
+</section>
+</h1> -->
+
+
+<section class="attribution-section">
+  <style>
+    .attribution-section {
+        background-color: #f9f9f9; /* Light grey background */
+        padding: 20px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .attribution-section a {
+        color: #007bff; /* Blue link color */
+        text-decoration: none; /* Remove underline from links */
+    }
+
+    .attribution-section a:hover {
+        text-decoration: underline; /* Underline links on hover */
+    }
+  </style>
+
+  <div class="attribution-content">
+    <p>
+      This website is adapted from <a href="https://uni-medical.github.io/GMAI-MMBench.github.io/" target="_blank">GMAI-MMBench</a> and <a href="https://mathvista.com" target="_blank">MathVista</a>, licensed under a 
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+  </div>
+</section>
+
+</html>
